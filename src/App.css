@@ -3,8 +3,12 @@
   background: linear-gradient(135deg, #fbc2eb 0%, #a6c1ee 100%); /* Soft Pink/Blue gradient */
   min-height: 100vh;
   display: flex;
-  justify-content: center;
+  flex-direction: column; /* Stacks items vertically */
+  justify-content: start;
   align-items: center;
+  min-height: 100vh;
+  padding: 20px;          /* Adds space around the edges of the screen */
+  gap: 20px;             /* Adds a 20px gap between the quote and the card */
   color: #5d5d5d;
   font-family: 'Trebuchet MS', sans-serif;
 }
@@ -19,17 +23,6 @@
 .night-mode {
   background: linear-gradient(135deg, #2c3e50 0%, #000000 100%);
   color: #ecf0f1;
-}
-
-/* The "Glassmorphism" Card */
-.glass-card {
-  background: rgba(255, 255, 255, 0.7); /* See-through white */
-  backdrop-filter: blur(10px);        /* Blurs the background behind it */
-  padding: 40px;
-  border-radius: 30px;                /* Round corners = Cute! */
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-  text-align: center;
-  border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 .clock-text {
@@ -67,6 +60,19 @@
   color: #8899a6;
 }
 
+/* The "Glassmorphism" Card */
+.glass-card {
+  width: 500px;
+  word-wrap: break-word; /* Allows long words to break */
+  background: rgba(255, 255, 255, 0.7); /* See-through white */
+  backdrop-filter: blur(10px);        /* Blurs the background behind it */
+  padding: 40px;
+  border-radius: 30px;                /* Round corners = Cute! */
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
 .todo-section {
   margin-top: 30px;
   width: 100%;
@@ -94,6 +100,7 @@
   list-style-type: none; /* Removes the ugly bullet points */
   padding: 0;
   margin-top: 20px;
+  width: 100%; /* Ensures the list fills the card width */
 }
 
 .todo-list li {
@@ -102,8 +109,10 @@
   padding: 12px;
   border-radius: 15px;
   display: flex;
-  justify-content: space-between; /* This will be useful for the delete button! */
-  align-items: center;
+  gap: 10px;
+  width: 100%;           /* Stay inside the parent */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 10px;
   box-shadow: 0 2px 5px rgba(0,0,0,0.05);
   transition: 0.3s;
 }
@@ -116,10 +125,12 @@
 .todo-list li span {
   font-weight: 500;
   color: #555;
-  flex-grow: 1; /* This pushes the button to the far right! */
+  flex: 1;               /* Tells text to take all space until it hits the button */
+  white-space: normal;   /* Allows wrapping */
 }
 
 .delete-btn {
+  align-self: flex-start;
   background: #e0f2f1; /* Light minty green */
   color: #4db6ac;
   border: none;
@@ -137,15 +148,20 @@
 }
 
 .quote-section {
-  margin: 30px 0;
-  padding: 20px;
+  width: 100%;
+  max-width: 600px;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.2);
+  padding: 15px;
+  border-radius: 20px;
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 .quote-text {
   font-style: italic;
   font-size: 1.1rem;
   color: #6a7b9b;
-  min-height: 3em; /* Keeps the card the same size even if quotes are long */
 }
 
 .quote-btn {
@@ -165,6 +181,10 @@
 }
 
 .music-section {
+  position: fixed;
+  bottom: 30px;
+  right: 10px;
+  z-index: 1000;
   margin-top: 20px;
 }
 
@@ -190,6 +210,7 @@
   font-size: 0.8rem;
   color: #5a83c9;
   margin-top: 10px;
+  margin-left: 10px;
   animation: float 2s infinite ease-in-out;
 }
 
@@ -259,4 +280,9 @@
   border-radius: 10px;
   font-size: 0.7rem;
   white-space: nowrap;
+}
+
+.main-panel {
+  display: flex;
+  flex-direction: row;
 }
