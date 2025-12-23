@@ -1,38 +1,219 @@
+/* The Background */
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+  background: linear-gradient(135deg, #fbc2eb 0%, #a6c1ee 100%); /* Soft Pink/Blue gradient */
   min-height: 100vh;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  align-items: center;
+  color: #5d5d5d;
+  font-family: 'Trebuchet MS', sans-serif;
+}
+
+/* Day Mode Colors */
+.day-mode {
+  background: linear-gradient(135deg, #fbc2eb 0%, #a6c1ee 100%);
+  color: #5d5d5d;
+}
+
+/* Night Mode Colors */
+.night-mode {
+  background: linear-gradient(135deg, #2c3e50 0%, #000000 100%);
+  color: #ecf0f1;
+}
+
+/* The "Glassmorphism" Card */
+.glass-card {
+  background: rgba(255, 255, 255, 0.7); /* See-through white */
+  backdrop-filter: blur(10px);        /* Blurs the background behind it */
+  padding: 40px;
+  border-radius: 30px;                /* Round corners = Cute! */
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.clock-text {
+  font-size: 3rem;
+  margin: 10px 0;
+  color: #7a8ba9;
+}
+
+.mood-container {
+  text-align: center;
+  margin: 30px;
+}
+
+.mood-selector button {
+  background: white;
+  border: none;
+  font-size: 1.5rem;
+  margin: 10px;
+  padding: 10px 15px;
+  gap: 10px;
+  border-radius: 50%; /* Makes them circles */
+  cursor: pointer;
+  transition: transform 0.2s; /* Smooth animation */
+  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.mood-selector button:hover {
+  transform: scale(1.2); /* Gently grows when you hover */
+  background: #fff5f5;
+}
+
+.mood-display {
+  margin-top: 20px;
+  font-size: 1.2rem;
+  color: #8899a6;
+}
+
+.todo-section {
+  margin-top: 30px;
+  width: 100%;
+}
+
+.todo-input input {
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  outline: none;
+  width: 60%;
+}
+
+.todo-input button {
+  padding: 10px 15px;
+  margin-left: 10px;
+  background-color: #a6c1ee;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.todo-list {
+  list-style-type: none; /* Removes the ugly bullet points */
+  padding: 0;
+  margin-top: 20px;
+}
+
+.todo-list li {
+  background: white;
+  margin: 8px 0;
+  padding: 12px;
+  border-radius: 15px;
+  display: flex;
+  justify-content: space-between; /* This will be useful for the delete button! */
+  align-items: center;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  transition: 0.3s;
+}
+
+.todo-list li:hover {
+  transform: translateX(10px); /* Moves slightly to the right when you hover */
+  background: #fffafa;
+}
+
+.todo-list li span {
+  font-weight: 500;
+  color: #555;
+  flex-grow: 1; /* This pushes the button to the far right! */
+}
+
+.delete-btn {
+  background: #e0f2f1; /* Light minty green */
+  color: #4db6ac;
+  border: none;
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.delete-btn:hover {
+  background: #80cbc4;
+  color: white;
+  transform: scale(1.1);
+}
+
+.quote-section {
+  margin: 30px 0;
+  padding: 20px;
+}
+
+.quote-text {
+  font-style: italic;
+  font-size: 1.1rem;
+  color: #6a7b9b;
+  min-height: 3em; /* Keeps the card the same size even if quotes are long */
+}
+
+.quote-btn {
+  background: #b2c0ec;
+  border: 1px solid #8db0ee;
+  color: #4469a8;
+  padding: 5px 15px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 0.8rem;
+}
+
+.quote-btn:hover {
+  background: #a6c1ee;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.music-section {
+  margin-top: 20px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.music-toggle {
+  background: #d4e1f5;
+  color: #5d6d7e;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 50px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(166, 193, 238, 0.3);
+}
+
+.music-toggle:hover {
+  background: #a6c1ee;
+  color: white;
+  transform: translateY(-2px);
+}
+
+.music-note {
+  font-size: 0.8rem;
+  color: #5a83c9;
+  margin-top: 10px;
+  animation: float 2s infinite ease-in-out;
+}
+
+/* A cute little floating animation */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+/* Change the card transparency for Night Mode */
+.night-mode .glass-card {
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: white;
+}
+
+/* Theme Toggle Button Style */
+.theme-toggle {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  padding: 10px 15px;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(5px);
 }
