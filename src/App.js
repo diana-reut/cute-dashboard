@@ -130,9 +130,9 @@ function App() {
         </div>
         <div className="mood-selector">
           <p>How are you feeling?</p>
-          <button onClick={() => setMood("Moody ☁️")}>☁️</button>
-          <button onClick={() => setMood("Productive ✨")}>✨</button>
-          <button onClick={() => setMood("Sleepy 🌙")}>🌙</button>
+          <button className="Moody" onClick={() => setMood("Moody ☁️")}>☁️</button>
+          <button className="Productive" onClick={() => setMood("Productive ✨")}>✨</button>
+          <button className="Sleepy" onClick={() => setMood("Sleepy 🌙")}>🌙</button>
         </div>
         <div className="mood-display">
           Current Vibe: <strong>{mood}</strong>

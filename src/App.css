@@ -156,6 +156,7 @@
   border-radius: 20px;
   cursor: pointer;
   font-size: 0.8rem;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 .quote-btn:hover {
@@ -216,4 +217,46 @@
   cursor: pointer;
   background: rgba(255, 255, 255, 0.3);
   backdrop-filter: blur(5px);
+}
+
+.mood-selector .Moody:hover::after {
+  content: "Moody"; /* You can change this text */
+  position: absolute;
+  top: 45px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #f5afdf;
+  color: white;
+  padding: 4px 8px;
+  border-radius: 10px;
+  font-size: 0.7rem;
+  white-space: nowrap;
+}
+
+.mood-selector .Productive:hover::after {
+  content: "Productive"; /* You can change this text */
+  position: absolute;
+  top: 45px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #f5afdf;
+  color: white;
+  padding: 4px 8px;
+  border-radius: 10px;
+  font-size: 0.7rem;
+  white-space: nowrap;
+}
+
+.mood-selector .Sleepy:hover::after {
+  content: "Sleepy"; /* You can change this text */
+  position: absolute;
+  top: 45px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #f5afdf;
+  color: white;
+  padding: 4px 8px;
+  border-radius: 10px;
+  font-size: 0.7rem;
+  white-space: nowrap;
 }
