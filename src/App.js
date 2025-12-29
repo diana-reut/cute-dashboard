@@ -155,14 +155,24 @@ function Music({ audioRef, isPlaying, toggleMusic }){
 
 function App() {
   // Create a "state" variable for time
-  const [time, setTime] = useState(new Date().toLocaleTimeString());
+  const [time, setTime] = useState(new Date().toLocaleTimeString('en-GB', { 
+    hour: '2-digit', 
+    minute: '2-digit', 
+    second: '2-digit', 
+    hour12: false 
+  }));
   // This is like a "while(true)" loop but for browsers
   useEffect(() => {
     const timer = setInterval(() => {
-      setTime(new Date().toLocaleTimeString());
+      // This line was missing the 24h formatting logic!
+      setTime(new Date().toLocaleTimeString('en-GB', { 
+        hour: '2-digit', 
+        minute: '2-digit', 
+        second: '2-digit', 
+        hour12: false 
+      }));
     }, 1000);
-
-    return () => clearInterval(timer); // Cleanup
+    return () => clearInterval(timer); 
   }, []);
 
   // mood tracker
