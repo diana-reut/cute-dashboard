@@ -3,6 +3,7 @@ A personalized, aesthetic web application built with **React** during winter bre
 
 🚀 **Live Demo:** [https://diana-cozy-corner.netlify.app/](https://diana-cozy-corner.netlify.app/)
 
+![Dashboard Screenshot](./public/poza_cu_siteul.png)
 ---
 
 ## ✨ Features
